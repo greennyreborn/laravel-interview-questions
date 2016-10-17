@@ -19,6 +19,11 @@ class TestController extends Controller
         $this->interviewQuestions->snakeMatrix(intval($num));
     }
 
+    public function lineSum(Request $request, $n)
+    {
+        $this->interviewQuestions->lineSum($n);
+    }
+
     private function test($params)
     {
         $params = func_get_args();

@@ -19,3 +19,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/snake_matrix/{num}', 'TestController@snakeMatrix')->name('snakeMatrix');
+Route::get('/line_sum/{n}', 'TestController@lineSum')->name('lineSum');

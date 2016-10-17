@@ -13,10 +13,16 @@ class InterviewQuestions
     public function __construct()
     {
         $this->snakeMatrix = new SnakeMatrix();
+        $this->lineSum = new LineSum();
     }
 
     public function snakeMatrix($num)
     {
         $this->snakeMatrix->runV2($num);
+    }
+
+    public function lineSum($n)
+    {
+        $this->lineSum->run($n);
     }
 }
