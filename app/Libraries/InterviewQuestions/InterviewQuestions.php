@@ -18,7 +18,7 @@ class InterviewQuestions
 
     public function snakeMatrix($num)
     {
-        $this->snakeMatrix->runV2($num);
+        $this->snakeMatrix->runV3($num);
     }
 
     public function lineSum($n)

@@ -151,4 +151,45 @@ class SnakeMatrix
         }
         echo '</table>';
     }
+
+    public function runV3($num)
+    {
+        $matrix = $this->initEmptyMatrix($num);
+        $this->singleCircle(1, $num, $matrix, $num);
+        $this->printMatrixV2($matrix, $num);
+    }
+
+    private function singleCircle($count, $size, &$matrix, $totalSize)
+    {
+        $startX = $startY = ($totalSize - $size) / 2;
+        if ($size === 0) {
+            return;
+        }
+        if ($size === 1) {
+            $matrix[$startX][$startY] = $count;
+            return;
+        }
+
+        // right
+        for ($i = 0; $i < $size; $i++) {
+            $matrix[$startX + $i][$startY] = $count++;
+        }
+
+        // down
+        for ($i = 1; $i < $size; $i++) {
+            $matrix[$startX + $size - 1][$startY + $i] = $count++;
+        }
+
+        // left
+        for ($i = 1; $i < $size; $i++) {
+            $matrix[$startX + $size - 1 - $i][$startY + $size - 1] = $count++;
+        }
+
+        // up
+        for ($i = 1; $i < $size - 1; $i++) {
+            $matrix[$startX][$startY + $size - 1 - $i] = $count++;
+        }
+
+        $this->singleCircle($count, $size - 2, $matrix, $totalSize);
+    }
 }
